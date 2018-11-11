@@ -1,6 +1,6 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Product_mode extends CI_Model
+class Product_model extends CI_Model
 {
   private $_table = "products";
 

@@ -4,11 +4,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Products extends CI_Controller {
 
 	public function __construct()
-	{
-		parent::__construct;
-		$this->load->model('product_model');
-		$this->load->library('form_validation');
-	}
+	 {
+			 parent::__construct();
+			 $this->load->model("product_model");
+			 $this->load->library('form_validation');
+	 }
 
 	public function index()
 	{
@@ -20,10 +20,10 @@ class Products extends CI_Controller {
 	{
 		$products = $this->product_model;
 		$validation = $this->form_validation;
-		$validation->set_rules($product->rules());
+		$validation->set_rules($products->rules());
 
 		if($validation->run()){
-			$product->save();
+			$products->save();
 			$this->session->set_flashdata('success', 'Berhasil disimpan');
 		}
 
@@ -36,14 +36,14 @@ class Products extends CI_Controller {
 
 		$products = $this->product_model;
 		$validation = $this->form_validation;
-		$validation->set_rules($product->rules());
+		$validation->set_rules($products->rules());
 
 		if($validation->run()){
-			$product->update();
+			$products->update();
 			$this->session->set_flashdata('success', 'Berhasil disimpan');
 		}
 
-		$data["product"] = $product->getById($id);
+		$data["product"] = $products->getById($id);
 		if(!$data["product"]) show_404();
 
 		$this->load->view('admin/product/edit_form', $data);
