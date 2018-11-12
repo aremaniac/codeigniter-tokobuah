@@ -19,8 +19,6 @@ class Login extends CI_Controller {
 
         $login = $this->user_model->cek_user($user, $pass);
 
-        // print_r($login);die;
-
         if (!empty($login)) {
             // login berhasil
             $this->session->set_userdata($login);
