@@ -9,7 +9,9 @@ class Products extends CI_Controller {
 			 $this->load->model("product_model");
 			 $this->load->library('form_validation', 'session');
 
-			 
+	 		 if($this->session->userdata('login_status') != 'logged_in'){
+	 			 redirect(site_url('login'));
+	 		 }
 	 }
 
 	public function index()
