@@ -7,7 +7,9 @@ class Products extends CI_Controller {
 	 {
 			 parent::__construct();
 			 $this->load->model("product_model");
-			 $this->load->library('form_validation');
+			 $this->load->library('form_validation', 'session');
+
+			 
 	 }
 
 	public function index()

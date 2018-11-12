@@ -13,7 +13,6 @@ class Login extends CI_Controller {
     }
 
     public function proses_login() {
-      // print_r($this->input->post());die;
         $user = $this->input->post("username");
         $pass = $this->input->post("password");
 
@@ -21,7 +20,10 @@ class Login extends CI_Controller {
 
         if (!empty($login)) {
             // login berhasil
+            $login['login_status'] = 'logged_in';
             $this->session->set_userdata($login);
+            print_r($this->session->userdata());
+            die;
             redirect(site_url('admin'));
         } else {
             // login gagal
